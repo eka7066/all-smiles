@@ -1,0 +1,11 @@
+.burger-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: var(--color-light-pink);
+    padding: 15px;
+    color: var(--color-dark-blue);
+    width: 49px;
+    height: 49px;
+}

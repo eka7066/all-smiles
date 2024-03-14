@@ -1,0 +1,461 @@
+@charset "UTF-8";
+/**
+  Нормализация блочной модели
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями
+ */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Плавный скролл
+   */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+ */
+svg *[fill] {
+  fill: currentColor;
+}
+
+svg *[stroke] {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("./fonts/OpenSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("./fonts/OpenSans-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Catamaran";
+  src: url("./fonts/Catamaran-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --color-blue: #2E3192;
+  --color-dark-blue: #1E2D78;
+  --color-light: #ffffff;
+  --color-red:#DD3333;
+  --color-orange: #F4572E;
+  --color-gray: #8A8A8A;
+  --color-light-pink: #FDEAEA;
+  --color-gray-alternate: #656565;
+  --font-family-base: "Open Sans", sans-serif;
+  --font-family-accent: "Catamaran", sans-serif;
+  --input-height: 50px;
+  --input-padding: 15px 22px;
+  --input-border: 2px solid #DCE6F5;
+  --border-radius: 5px;
+  --container-width: 1300px;
+  --container-padding-x: 15px;
+  --transition-duration: 0.2s;
+  --header-height: 40px;
+  --header-menu-height: 100px;
+}
+@media (max-width: 1280px) {
+  :root {
+    --section-padding-y: 50px;
+  }
+}
+@media (max-width: 767px) {
+  :root {
+    --section-padding-y: 30px;
+  }
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 767px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
+body {
+  font-size: clamp(12px, 1.25vw, 18px);
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  line-height: 1.28;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+
+a,
+button,
+input,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 500;
+}
+
+h1, .h1 {
+  font-size: clamp(43px, 4.1666666667vw, 60px);
+}
+
+h2, .h2 {
+  font-size: clamp(36px, 2.7777777778vw, 40px);
+}
+
+h3, .h3 {
+  font-size: clamp(26px, 2.0833333333vw, 30px);
+}
+
+h4, .h4 {
+  font-size: clamp(18px, 1.3888888889vw, 20px);
+}
+
+.header-intro {
+  height: 40px;
+  background-color: var(--color-blue);
+  color: var(--color-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 20px;
+  padding-inline: 20px;
+}
+.header-intro__left, .header-intro__right {
+  display: flex;
+  column-gap: 40px;
+}
+@media (hover: hover) {
+  .header-intro__left a:hover, .header-intro__right a:hover {
+    opacity: 0.7;
+  }
+}
+@media (hover: none) {
+  .header-intro__left a:active, .header-intro__right a:active {
+    opacity: 0.7;
+  }
+}
+.header-intro__right--tel, .header-intro__right--address {
+  position: relative;
+}
+.header-intro__right--tel::before {
+  content: "";
+  position: absolute;
+  background: url(../../img/icons/tel.svg) center/contain no-repeat;
+  color: var(--color-light);
+  width: 100%;
+  height: 100%;
+  left: -67%;
+}
+.header-intro__right--address::before {
+  content: "";
+  position: absolute;
+  background: url(../../img/icons/map.svg) center/contain no-repeat;
+  color: var(--color-light);
+  width: 100%;
+  height: 100%;
+  left: -56%;
+}
+@media (max-width: 1023px) {
+  .header-intro__right {
+    column-gap: 25px;
+  }
+}
+@media (max-width: 480px) {
+  .header-intro__right--tel::before, .header-intro__right--address::before {
+    display: none;
+  }
+}
+@media (max-width: 1023px) {
+  .header-intro {
+    column-gap: 10px;
+  }
+  .header-intro__left {
+    column-gap: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .header-intro {
+    height: 50px;
+    font-size: 11px;
+    flex-direction: column;
+    row-gap: 5px;
+    padding-block: 5px;
+  }
+  .header-intro__right {
+    column-gap: 15px;
+  }
+  .header-intro__right--address {
+    margin-left: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .header-intro__right {
+    font-size: 10px;
+    padding-inline: 10px;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+.intro {
+  font-style: normal;
+}
+
+.header-menu {
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+  padding-inline: 30px;
+}
+.header-menu__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+.header-menu__nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+.header-menu__list {
+  display: flex;
+  column-gap: 50px;
+  text-transform: uppercase;
+  color: var(--color-dark-blue);
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.1rem;
+  height: 100%;
+}
+.header-menu__item {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.header-menu__actions {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+}
+.header-menu__search {
+  margin-left: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-dark-blue);
+  letter-spacing: 0.1rem;
+}
+@media (max-width: 1023px) {
+  .header-menu__list {
+    column-gap: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .header-menu__list {
+    column-gap: 10px;
+  }
+  .header-menu__actions {
+    justify-content: center;
+  }
+  .header-menu {
+    flex-direction: column;
+    row-gap: 15px;
+    padding-block: 10px;
+    margin-bottom: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .header-menu__nav {
+    font-size: 10px;
+  }
+}
+
+.is-active {
+  border-top: 2px solid var(--color-red);
+}
+@media (max-width: 767px) {
+  .is-active {
+    border-top: none;
+  }
+}
+
+.burger-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: var(--color-light-pink);
+  padding: 15px;
+  color: var(--color-dark-blue);
+  width: 49px;
+  height: 49px;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,103 @@
+.header-intro {
+    height: 40px;
+    background-color: var(--color-blue);
+    color: var(--color-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 20px;
+    padding-inline: 20px;
+
+    &__left, &__right {
+        display: flex;
+        column-gap: 40px;
+
+        a {
+            @include hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    &__right {
+        &--tel, &--address {
+            position: relative;
+        }
+
+        &--tel::before {
+            content: '';
+            position: absolute;
+            background: url(../../img/icons/tel.svg) center/contain no-repeat;
+            color: var(--color-light);
+            width: 100%;
+            height: 100%;
+            left: -67%;
+        }
+
+        &--address::before {
+            content: '';
+            position: absolute;
+            background: url(../../img/icons/map.svg) center/contain no-repeat;
+            color: var(--color-light);
+            width: 100%;
+            height: 100%;
+            left: -56%;
+        }
+
+        @include tablet {
+            & {
+                column-gap: 25px;
+            }
+        }
+
+        @include mobile-s {
+            &--tel::before, &--address::before {
+                display: none;
+            }
+        }
+        
+    }
+
+    @include tablet {
+        & {
+            column-gap: 10px;
+        }
+
+        &__left {
+            column-gap: 10px;
+        }
+    }
+
+    @include mobile {
+        & {
+            height: 50px;
+            font-size: 11px;
+            flex-direction: column;
+            row-gap: 5px;
+            padding-block: 5px;
+        }
+
+        &__right {
+            column-gap: 15px;
+
+            &--address {
+                margin-left: 15px;
+            }
+        }
+    }
+
+    @include mobile-s {
+        &__right {
+            font-size: 10px;
+            padding-inline: 10px;
+            text-align: center;
+            justify-content: center;
+            
+        }
+    }
+
+}
+
+.intro {
+    font-style: normal;
+}
