@@ -1,0 +1,175 @@
+.dot {
+    color: var(--color-red) !important;
+}
+
+.working-hours {
+
+
+    &__body {
+        display: flex;
+        column-gap: 20px;
+        justify-content: center;
+        align-items: flex-start;
+        margin-block: 100px;
+    }
+
+    &__pick-dentist {
+        max-width: 433px;
+        width: 100%;
+
+        &--img {
+            display: flex;
+            margin-bottom: 20px;
+            flex-shrink: 0;
+        }
+
+        &--title {
+            color: var(--color-dark-blue);
+            font-family: var(--font-family-accent);
+            font-weight: 600;
+
+            @include fluid-text(27, 10);
+
+            &:not(:last-child) {
+                margin-bottom: 15px;
+            }
+        }
+
+        p {
+            color: var(--color-gray);
+            font-size: 15px;
+            line-height: 1.5;
+            width: 394px;
+        }
+
+        &--link {
+            color: var(--color-dark-blue);
+            text-transform: uppercase;
+            letter-spacing: .2rem;
+            font-size: 12px;
+            font-weight: 600;
+            position: relative;
+
+            @include hover {
+                opacity: 0.7;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                background: url('../../img/icons/small-arr-right.svg') center/contain no-repeat;
+                top: 0%;
+                left: 11em;
+                translate: -50% -50%;
+                background-size: 10px;
+                border-radius: 50%;
+                border-color: transparent;
+                border: 1px dashed var(--color-dark-blue);
+                
+                @include square(36px);
+            }
+        }
+
+    }
+
+    &__pluses {
+        max-width: 433px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+
+       &--img {
+        flex-shrink: 0;
+       } 
+
+       &--list {
+        color: var(--color-gray);
+        font-size: 15px;
+       }
+
+       &--item {
+        position: relative;
+        padding-left: 30px;
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+        
+        &::before {
+            content: '';
+            position: absolute;
+            background: url(../../img/icons/plus.svg) center/contain no-repeat;
+            width: 30px;
+            height: 11px;
+            bottom: 0%;
+            left: 6%;
+            translate: -50% -50%;
+        }
+       }
+    }
+
+    &__schedule {
+        max-width: 413px;
+        width: 100%;
+        background-color: var(--color-light-pink);
+        padding-top: 30px;
+        border-radius: var(--border-radius);
+
+        &--title {
+            font-family: var(--font-family-accent);
+            font-weight: 600;
+            color: var(--color-dark-blue);
+            text-align: center;
+
+            @include fluid-text(35, 12);
+
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+        }
+
+        &--table {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            border-collapse: collapse;
+            line-height: 2.5;
+
+            th {
+                color: var(--color-gray-alternate);
+                font-weight: normal;
+                font-size: 15px;
+            }
+
+            td {
+                text-transform: uppercase;
+                color: var(--color-gray-alternate);
+            }
+
+           
+        }
+
+        &--call-us {
+            background-color: var(--color-dark-blue);
+            color: var(--color-light);
+            font-family: var(--font-family-accent);
+            font-weight: 600;
+            font-size: 20px;
+            text-align: center;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+
+            a {
+                @include hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
+

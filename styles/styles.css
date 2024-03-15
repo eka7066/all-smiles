@@ -603,4 +603,160 @@ h4, .h4 {
   }
 }
 
+.dot {
+  color: var(--color-red) !important;
+}
+
+.working-hours__body {
+  display: flex;
+  column-gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-block: 100px;
+}
+.working-hours__pick-dentist {
+  max-width: 433px;
+  width: 100%;
+}
+.working-hours__pick-dentist--img {
+  display: flex;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+.working-hours__pick-dentist--title {
+  color: var(--color-dark-blue);
+  font-family: var(--font-family-accent);
+  font-weight: 600;
+  font-size: clamp(10px, 1.875vw, 27px);
+}
+.working-hours__pick-dentist--title:not(:last-child) {
+  margin-bottom: 15px;
+}
+.working-hours__pick-dentist p {
+  color: var(--color-gray);
+  font-size: 15px;
+  line-height: 1.5;
+  width: 394px;
+}
+.working-hours__pick-dentist--link {
+  color: var(--color-dark-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 12px;
+  font-weight: 600;
+  position: relative;
+}
+@media (hover: hover) {
+  .working-hours__pick-dentist--link:hover {
+    opacity: 0.7;
+  }
+}
+@media (hover: none) {
+  .working-hours__pick-dentist--link:active {
+    opacity: 0.7;
+  }
+}
+.working-hours__pick-dentist--link::after {
+  content: "";
+  position: absolute;
+  background: url("../../img/icons/small-arr-right.svg") center/contain no-repeat;
+  top: 0%;
+  left: 11em;
+  translate: -50% -50%;
+  background-size: 10px;
+  border-radius: 50%;
+  border-color: transparent;
+  border: 1px dashed var(--color-dark-blue);
+  width: 36px;
+  aspect-ratio: 1;
+}
+.working-hours__pluses {
+  max-width: 433px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.working-hours__pluses--img {
+  flex-shrink: 0;
+}
+.working-hours__pluses--list {
+  color: var(--color-gray);
+  font-size: 15px;
+}
+.working-hours__pluses--item {
+  position: relative;
+  padding-left: 30px;
+}
+.working-hours__pluses--item:not(:last-child) {
+  margin-bottom: 10px;
+}
+.working-hours__pluses--item::before {
+  content: "";
+  position: absolute;
+  background: url(../../img/icons/plus.svg) center/contain no-repeat;
+  width: 30px;
+  height: 11px;
+  bottom: 0%;
+  left: 6%;
+  translate: -50% -50%;
+}
+.working-hours__schedule {
+  max-width: 413px;
+  width: 100%;
+  background-color: var(--color-light-pink);
+  padding-top: 30px;
+  border-radius: var(--border-radius);
+}
+.working-hours__schedule--title {
+  font-family: var(--font-family-accent);
+  font-weight: 600;
+  color: var(--color-dark-blue);
+  text-align: center;
+  font-size: clamp(12px, 2.4305555556vw, 35px);
+}
+.working-hours__schedule--title:not(:last-child) {
+  margin-bottom: 20px;
+}
+.working-hours__schedule--table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  border-collapse: collapse;
+  line-height: 2.5;
+}
+.working-hours__schedule--table th {
+  color: var(--color-gray-alternate);
+  font-weight: normal;
+  font-size: 15px;
+}
+.working-hours__schedule--table td {
+  text-transform: uppercase;
+  color: var(--color-gray-alternate);
+}
+.working-hours__schedule--call-us {
+  background-color: var(--color-dark-blue);
+  color: var(--color-light);
+  font-family: var(--font-family-accent);
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+@media (hover: hover) {
+  .working-hours__schedule--call-us a:hover {
+    opacity: 0.7;
+  }
+}
+@media (hover: none) {
+  .working-hours__schedule--call-us a:active {
+    opacity: 0.7;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */
