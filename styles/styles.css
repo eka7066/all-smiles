@@ -801,4 +801,16 @@ h4, .h4 {
   }
 }
 
+.services__body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  row-gap: 50px;
+}
+.services__item {
+  display: flex;
+  column-gap: 15px;
+}
+
 /*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,14 @@
+.services {
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+        align-items: center;
+        row-gap: 50px;
+    }
+
+    &__item {
+        display: flex;
+        column-gap: 15px;
+    }
+}
