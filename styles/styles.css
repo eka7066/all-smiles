@@ -505,7 +505,7 @@ h4, .h4 {
   height: 74vh;
 }
 .banner__wrapper {
-  background: url("../../img/banner.jpg") center/cover no-repeat;
+  background: url("../img/banner.jpg") center/cover no-repeat;
   width: 100%;
   height: 100%;
   position: relative;
@@ -614,7 +614,21 @@ h4, .h4 {
   align-items: flex-start;
   margin-block: 100px;
 }
+@media (max-width: 1280px) {
+  .working-hours__body {
+    row-gap: 30px;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 480px) {
+  .working-hours__body img {
+    width: 60%;
+    height: auto;
+  }
+}
 .working-hours__pick-dentist {
+  display: flex;
+  flex-direction: column;
   max-width: 433px;
   width: 100%;
 }
@@ -659,7 +673,7 @@ h4, .h4 {
 .working-hours__pick-dentist--link::after {
   content: "";
   position: absolute;
-  background: url("../../img/icons/small-arr-right.svg") center/contain no-repeat;
+  background: url("../img/icons/small-arr-right.svg") center/contain no-repeat;
   top: 0%;
   left: 11em;
   translate: -50% -50%;
@@ -670,11 +684,31 @@ h4, .h4 {
   width: 36px;
   aspect-ratio: 1;
 }
+@media (max-width: 480px) {
+  .working-hours__pick-dentist--link::after {
+    width: 25px;
+    left: 10.2em;
+    top: 0.3rem;
+  }
+}
+@media (max-width: 480px) {
+  .working-hours__pick-dentist {
+    align-items: center;
+    width: 27em;
+  }
+  .working-hours__pick-dentist--title {
+    font-size: 14px;
+  }
+  .working-hours__pick-dentist p {
+    font-size: 12px;
+    width: 70%;
+  }
+}
 .working-hours__pluses {
-  max-width: 433px;
-  width: 100%;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 433px;
   row-gap: 20px;
 }
 .working-hours__pluses--img {
@@ -700,6 +734,11 @@ h4, .h4 {
   bottom: 0%;
   left: 6%;
   translate: -50% -50%;
+}
+@media (max-width: 480px) {
+  .working-hours__pluses {
+    align-items: center;
+  }
 }
 .working-hours__schedule {
   max-width: 413px;
@@ -734,6 +773,9 @@ h4, .h4 {
 .working-hours__schedule--table td {
   text-transform: uppercase;
   color: var(--color-gray-alternate);
+}
+.working-hours__schedule--table tr {
+  text-align: left;
 }
 .working-hours__schedule--call-us {
   background-color: var(--color-dark-blue);

@@ -3,7 +3,7 @@
 }
 
 .working-hours {
-
+    
 
     &__body {
         display: flex;
@@ -11,9 +11,23 @@
         justify-content: center;
         align-items: flex-start;
         margin-block: 100px;
+
+        @include desktop {
+            row-gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        @include mobile-s {
+            img {
+                width: 60%;
+                height: auto;
+            }
+        }
     }
 
     &__pick-dentist {
+        display: flex;
+        flex-direction: column;
         max-width: 433px;
         width: 100%;
 
@@ -57,7 +71,7 @@
             &::after {
                 content: '';
                 position: absolute;
-                background: url('../../img/icons/small-arr-right.svg') center/contain no-repeat;
+                background: url('../img/icons/small-arr-right.svg') center/contain no-repeat;
                 top: 0%;
                 left: 11em;
                 translate: -50% -50%;
@@ -67,16 +81,36 @@
                 border: 1px dashed var(--color-dark-blue);
                 
                 @include square(36px);
+
+                @include mobile-s {
+                    width: 25px;
+                    left: 10.2em;
+                    top: 0.3rem;
+                }
+            }
+        }
+
+        @include mobile-s {
+            align-items: center;
+            width: 27em;
+
+            &--title {
+                font-size: 14px;
+            }
+
+            p {
+                font-size: 12px;
+                width: 70%;
             }
         }
 
     }
 
     &__pluses {
-        max-width: 433px;
-        width: 100%;
         display: flex;
         flex-direction: column;
+        width: 100%;
+        max-width: 433px;
         row-gap: 20px;
 
        &--img {
@@ -106,6 +140,10 @@
             left: 6%;
             translate: -50% -50%;
         }
+       }
+
+       @include mobile-s {
+        align-items: center;
        }
     }
 
@@ -146,6 +184,10 @@
             td {
                 text-transform: uppercase;
                 color: var(--color-gray-alternate);
+            }
+
+            tr {
+                text-align: left;
             }
 
            
