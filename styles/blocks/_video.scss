@@ -1,0 +1,121 @@
+.video {
+    margin-top: 40px;
+
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        background-color: var(--color-light-blue);
+        column-gap: 20px;
+        
+        
+        @include tablet {
+            flex-direction: column;
+            row-gap: 15px;
+        }
+
+        @media (max-width: 2200px) {
+            justify-content: center;
+        }
+            
+    }
+
+    
+
+    
+    &__description {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+        justify-content: flex-end;
+        align-items: flex-start;
+        width: 532px;
+        padding-left: 15px;
+
+        &--wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            max-width: 902px;
+            width: 100%;
+
+            @media (max-width: 2200px) {
+                justify-content: center;
+            }
+        }
+
+        @include tablet {
+            padding-top: 15px;
+        }
+    }
+
+    &__pre-title {
+        color: var(--color-red);
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+    }
+
+    &__title {
+        color: var(--color-dark-blue);
+        font-weight: 600;
+        font-family: var(--font-family-accent);
+        font-size: clamp(16px, 3vw, 42px);
+        margin-bottom: 10px;
+    }
+
+    &__specification {
+        color: var(--color-gray-alternate);
+        font-size: 15px;
+    }
+
+
+    &__play {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &--button {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            background-color: transparent;
+            border: 1px solid var(--color-light);
+            width: 90px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            z-index: 1;
+            
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 70px;
+                aspect-ratio: 1;
+                border-radius: 50%;
+                background-color: var(--color-light);
+                top: 50%;
+                left: 50%;
+                translate: -50% -50%;
+                z-index: -1;
+            }
+
+            @include hover {
+                border: 1px solid var(--color-red);
+            }
+        }
+
+    }
+
+    &__poster {
+        width: 100%;
+        max-width: 1017px;
+        height: auto;
+    }
+
+}
