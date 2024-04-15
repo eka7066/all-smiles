@@ -1,0 +1,52 @@
+.discount {
+    background-color: var(--color-blue);
+    color: var(--color-light);
+    margin-top: 80px;
+    height: 213px;
+    
+
+    &__body {
+        display: flex;
+        column-gap: 20px;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    &__description {
+       display: flex;
+       flex-direction: column;
+       row-gap: 2px;
+       align-items: flex-start;
+       justify-content: center;
+    }
+
+    &__title {
+        font-family: var(--font-family-accent);
+        font-size: clamp(14px, 2.8vw, 35px);
+        font-weight: 600;
+    }
+
+    &__accent {
+        color: var(--color-orange);
+        font-weight: 400;
+    }
+
+    &__definition {
+        font-size: clamp(12px, 1.9vw, 19px);
+    }
+
+    @include mobile-s {
+        &__body {
+            flex-direction: column;
+            row-gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__description {
+            align-items: center;
+            text-align: center;
+        }
+    }
+}
