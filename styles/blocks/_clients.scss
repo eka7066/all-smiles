@@ -9,29 +9,8 @@
         align-items: center;
     }
 
-    &__pre-title {
-        color: var(--color-red);
-        font-size: 11px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.1rem;
-    }
-
     &__title {
-        color: var(--color-dark-blue);
-        font-weight: 600;
-        font-family: var(--font-family-accent);
-        font-size: clamp(16px, 3vw, 42px);
         margin-bottom: 10px;
-    }
-
-    &__post-title {
-        color: var(--color-gray);
-        font-size: 15px;
-
-        @include mobile-s {
-            text-align: center;
-        }
     }
 
     &__avatar {

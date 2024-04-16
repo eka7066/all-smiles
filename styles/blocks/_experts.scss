@@ -1,0 +1,85 @@
+.experts {
+    margin-block: 100px;
+
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        row-gap: 40px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__description {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__post-title {
+        width: 60%;
+        text-align: center;
+    }
+
+    &__avatars {
+        &--name {
+            font-size: clamp(16px, 1.6vw, 19px);
+        }
+
+        &--title {
+            font-size: clamp(10px, 1vw, 13px);
+        }
+    }
+
+    &__list {
+        display: flex;
+        column-gap: 30px;
+        justify-content: center;
+        align-items: center;
+
+        @include tablet {
+            flex-wrap: wrap;
+            row-gap: 30px;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 40px;
+            aspect-ratio: 1;
+            background-color: var(--color-dark-blue);
+            border-radius: 4px;
+            top: 10%;
+            left: 0;
+            translate: -50% -50%;
+            background: url("../../img/icons/share.svg") center/contain no-repeat var(--color-dark-blue);
+        }
+    }
+
+    &__img {
+        margin-bottom: 10px;
+        height: auto;
+
+        &--wrapper {
+            display: flex;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+    }
+
+    
+}
