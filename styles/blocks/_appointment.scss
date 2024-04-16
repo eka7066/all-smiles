@@ -1,0 +1,111 @@
+.appointment {
+   
+    background-color: var(--color-light-blue);
+
+    &__body {
+        display: flex;
+        column-gap: 20px;
+
+        @include mobile {
+            flex-direction: column;
+            row-gap: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &__img {
+        height: auto;              
+
+        &--wrapper {
+            display: flex;
+            flex-shrink: 0;
+            align-items: stretch;
+            justify-content: flex-end;
+            width: 50%; 
+
+            @include mobile { 
+                width: 100%;
+            } 
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        justify-content: center;
+        align-items: center;
+
+        @include mobile { 
+            width: 90%;
+        } 
+
+        &--wrapper {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+         
+
+            &::before {
+                content: "";
+                position: absolute;
+                background-color: var(--color-light-blue);
+                height: 100%;
+                width: 20%;
+                clip-path: polygon(93% 0, 46% 100%, 100% 100%);
+                top: 0%;
+                left: -20%;
+
+                @include mobile { 
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &__description {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        row-gap: 2px;
+        
+        
+    }
+
+    &__fields {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 15px;
+        column-gap: 15px;
+
+        @include mobile { 
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    &__button, &__description, &__fields  {
+        width: 100%;
+
+        @include mobile {
+            width: 90%;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &__button {
+        @include mobile {
+            display: flex;
+        }
+    }
+}
+
+.textarea {
+    resize: none;
+    grid-column: -1 / 1;  
+}
+

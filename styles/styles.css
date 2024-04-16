@@ -1357,4 +1357,131 @@ h4, .h4 {
   width: 100%;
 }
 
+.appointment {
+  background-color: var(--color-light-blue);
+}
+.appointment__body {
+  display: flex;
+  column-gap: 20px;
+}
+@media (max-width: 767px) {
+  .appointment__body {
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.appointment__img {
+  height: auto;
+}
+.appointment__img--wrapper {
+  display: flex;
+  flex-shrink: 0;
+  align-items: stretch;
+  justify-content: flex-end;
+  width: 50%;
+}
+@media (max-width: 767px) {
+  .appointment__img--wrapper {
+    width: 100%;
+  }
+}
+.appointment__form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .appointment__form {
+    width: 90%;
+  }
+}
+.appointment__form--wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.appointment__form--wrapper::before {
+  content: "";
+  position: absolute;
+  background-color: var(--color-light-blue);
+  height: 100%;
+  width: 20%;
+  clip-path: polygon(93% 0, 46% 100%, 100% 100%);
+  top: 0%;
+  left: -20%;
+}
+@media (max-width: 767px) {
+  .appointment__form--wrapper::before {
+    display: none;
+  }
+}
+.appointment__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  row-gap: 2px;
+}
+.appointment__fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 15px;
+  column-gap: 15px;
+}
+@media (max-width: 767px) {
+  .appointment__fields {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.appointment__button, .appointment__description, .appointment__fields {
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .appointment__button, .appointment__description, .appointment__fields {
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (max-width: 767px) {
+  .appointment__button {
+    display: flex;
+  }
+}
+
+.textarea {
+  resize: none;
+  grid-column: -1/1;
+}
+
+.field__input {
+  background-color: transparent;
+  border: 2px solid #DCE6F5;
+  padding: 15px 22px;
+  color: var(--color-gray);
+  border-radius: 4px;
+  transition-duration: var(--transition-duration);
+}
+.field__input:focus {
+  color: var(--color-dark);
+}
+@media (hover: hover) {
+  .field__input:hover {
+    opacity: 0.7;
+    border: 2px solid var(--color-dark-blue);
+  }
+}
+@media (hover: none) {
+  .field__input:active {
+    opacity: 0.7;
+    border: 2px solid var(--color-dark-blue);
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */
